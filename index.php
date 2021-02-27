@@ -1,13 +1,20 @@
 <?php
+require_once("functions/function_masyarakat.php");
 
-require_once "core/init.php";
-
-if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['signed'])){
     header('Location: login.php');
 }
+
+$user = user($_SESSION['signed']['username']);
+
+include("views/header.php");
 ?>
 
 <h1>Halaman Profile</h1>
-<p>Selamat datang, <?php echo ucwords($_SESSION['username'])?></p>
+<p>Selamat datang, <?php echo ucwords($user['nama'])?></p>
 
 <a href="logout.php">Logout</a>
+
+<?php
+include("views/footer.php");
+?>

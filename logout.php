@@ -1,9 +1,7 @@
 <?php
 
-require_once("core/init.php");
+require_once("functions/function_masyarakat.php");
 
-$session = $_SESSION['username'];
-// function logout
-logout($session);
-
-header('Location: login.php');
+if ($session = $_SESSION['signed']) {
+  logout($session);
+}

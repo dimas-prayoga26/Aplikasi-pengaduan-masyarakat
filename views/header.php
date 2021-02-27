@@ -13,11 +13,33 @@
     <body>
 
     <header>
-
         <nav>
             <a href="index.php">Home</a>
             <a href="register.php">Register</a>
             <a href="login.php">Login</a>
-            <a href="laporan.php">Laporan</a>
         </nav>
     </header>
+
+    <?php if (isset($_SESSION['error'])): ?>
+      <div class="row">
+        <div data-alert class="alert-box" style="">
+          <?php
+          echo $_SESSION['error'];
+          unset($_SESSION['error']);
+          ?>
+          <a href="#" class="close">&times;</a>
+        </div>
+      </div>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['success'])): ?>
+      <div class="row">
+        <div data-alert class="alert-box" style="">
+          <?php
+          echo $_SESSION['success'];
+          unset($_SESSION['success']);
+          ?>
+          <a href="#" class="close">&times;</a>
+        </div>
+      </div>
+    <?php endif; ?>

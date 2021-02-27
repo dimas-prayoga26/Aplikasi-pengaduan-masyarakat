@@ -3,7 +3,7 @@
 $host   = 'localhost';
 $user   = 'root';
 $pass   = '';
-$db     = 'db_phplogin';
+$db     = 'appem';
 
 $link   = mysqli_connect($host,$user,$pass,$db);
 

@@ -1,16 +1,14 @@
 <?php
 // php script
-include("functions/controller_login.php");
+require_once("functions/function_masyarakat.php");
+
+if (isset($_POST['submit'])) {
+  login($_POST);
+}
 
 // html
 include("views/header.php");
 ?>
-    <div class="row">
-        <div data-alert class="alert-box" style="display:none;">
-        Ini standard error
-        <a href="#" class="close">&times;</a>
-        </div>
-    </div>
     <div class="row">
         <div class="medium-6 medium-centered large-4 large-centered columns">
             <div class="row log-in-form">
@@ -24,7 +22,7 @@ include("views/header.php");
                         <input type="password" name="password" placeholder="Password">
                         </label>
                         <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-                        <p><input type="submit" name="submit" class="button expanded" value="MASUK"/></p>  
+                        <p><input type="submit" name="submit" class="button expanded" value="MASUK"/></p>
                     </div>
                 </form>
             </div>
