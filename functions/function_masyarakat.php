@@ -53,11 +53,11 @@ function login($request){
         'username' => $username
       ];
       $_SESSION['success'] = 'Login berhasil';
+      header('location:index.php');
     } else {
       $_SESSION['error'] = 'Login gagal';
+      header('location:login.php');
     }
-
-    header('location:index.php');
     exit;
 }
 
