@@ -7,14 +7,34 @@ if(!isset($_SESSION['signed'])){
 
 $user = user($_SESSION['signed']['username']);
 
-include("views/header.php");
+include("views/admin_header.php");
 ?>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Dashboard</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 
-<h1>Halaman Profile</h1>
-<p>Selamat datang, <?php echo ucwords($user['nama'])?></p>
+    <!-- Main content -->
+    <section class="content">
 
-<a href="logout.php">Logout</a>
-
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 <?php
-include("views/footer.php");
+include("views/admin_footer.php");
 ?>
