@@ -3,32 +3,60 @@
 require_once("functions/function_masyarakat.php");
 
 if (isset($_POST['submit'])) {
-  login($_POST);
+  if(login($_POST)) {
+    header('location:index.php');
+  } else {
+    header('location:login.php');
+  }
+  exit;
 }
 
 // html
-include("views/header.php");
+include("views/auth_header.php");
 ?>
-    <div class="row">
-        <div class="medium-6 medium-centered large-4 large-centered columns">
-            <div class="row log-in-form">
-                <form action="login.php" method="POST">
-                    <div class="row column">
-                        <h4 class="text-center">Login</h4>
-                        <label>Username
-                        <input type="text" name="username" placeholder="Username">
-                        </label>
-                        <label>Password
-                        <input type="password" name="password" placeholder="Password">
-                        </label>
-                        <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-                        <p><input type="submit" name="submit" class="button expanded" value="MASUK"/></p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+  <div class="card-body">
+    <p class="login-box-msg">Login untuk memulai</p>
 
+    <form action="login.php" method="post">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="username" placeholder="Username">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" name="password" placeholder="Password">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8">
+          <!-- <div class="icheck-primary">
+            <input type="checkbox" id="remember">
+            <label for="remember">
+              Remember Me
+            </label>
+          </div> -->
+        </div>
+        <!-- /.col -->
+        <div class="col-4">
+          <input type="hidden" name="submit" value="submit">
+          <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <p class="mb-0">
+      <a href="register.php" class="text-center">Belum punya akun?</a>
+    </p>
+  </div>
+  <!-- /.card-body -->
 <?php
-include("views/footer.php");
+include("views/auth_footer.php");
 ?>

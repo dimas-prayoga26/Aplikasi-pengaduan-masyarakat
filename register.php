@@ -4,40 +4,80 @@ require_once("functions/function_masyarakat.php");
 
 if (isset($_POST['submit'])) {
   register($_POST);
+
+  header('location:register.php');
+  exit;
 }
 
 // html
-include("views/header.php");
+include("views/auth_header.php");
 ?>
-    <div class="row">
-        <div class="medium-6 medium-centered large-4 large-centered columns">
-            <div class="row log-in-form">
-                <form action="register.php" method="POST">
-                    <div class="row column">
-                        <h4 class="text-center">Register</h4>
-                        <label>NIK
-                        <input type="text" name="nik" placeholder="" required>
-                        </label>
-                        <label>Nama
-                        <input type="text" name="nama" placeholder="" required>
-                        </label>
-                        <label>Telepon
-                        <input type="text" name="telp" placeholder="" required>
-                        </label>
-                        <label>Username
-                        <input type="text" name="username" placeholder="" required>
-                        </label>
-                        <label>Password
-                        <input type="password" name="password" placeholder="" required>
-                        </label>
-                        <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-                        <p><input type="submit" name="submit" class="button expanded" value="DAFTAR"/></p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+  <div class="card-body">
+    <p class="login-box-msg">Buat akun baru</p>
 
+    <form action="register.php" method="post">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="nik" placeholder="NIK" required>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="nama" placeholder="Nama" required>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="telp" placeholder="Telepon" required>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="username" placeholder="Username" required>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="Retype password">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-8">
+        </div>
+        <!-- /.col -->
+        <div class="col-4">
+          <input type="hidden" name="submit" value="submit">
+          <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <a href="login.php" class="text-center">Sudah punya akun?</a>
+  </div>
 <?php
-include("views/footer.php");
+include("views/auth_footer.php");
 ?>

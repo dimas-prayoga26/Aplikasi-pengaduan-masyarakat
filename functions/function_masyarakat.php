@@ -3,6 +3,7 @@ require_once("core/init.php");
 
 function register($request){
     global $link;
+    $result = false;
     // mencegah sql injection
     $nik = mysqli_real_escape_string($link, $request['nik']);
     $nama = mysqli_real_escape_string($link, $request['nama']);
@@ -20,6 +21,7 @@ function register($request){
           $queryInsert = "INSERT INTO masyarakat (nik, nama, username, password, telp) VALUES('$nik', '$nama', '$username', '$password', '$telp')";
 
           if( mysqli_query($link, $queryInsert) ) {
+            $result = true;
             $_SESSION['success'] = 'Register berhasil';
           } else {
             $_SESSION['error'] = 'Register gagal';
@@ -29,8 +31,7 @@ function register($request){
         }
     }
 
-    header('location:register.php');
-    exit;
+    return $result;
 }
 
 function login($request){
@@ -53,21 +54,18 @@ function login($request){
         'username' => $username
       ];
       $_SESSION['success'] = 'Login berhasil';
-      header('location:index.php');
+      return true;
     } else {
       $_SESSION['error'] = 'Login gagal';
-      header('location:login.php');
+      return false;
     }
-    exit;
 }
 
 // clear all session
 function logout($session){
     unset($session);
     session_destroy();
-
-    header('location:login.php');
-    exit;
+    return true;
 }
 
 function user($username){
