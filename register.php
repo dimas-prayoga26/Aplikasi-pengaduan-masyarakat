@@ -1,6 +1,7 @@
 <?php
 // php script
 require_once("functions/function_masyarakat.php");
+require_once('core/auth.php');
 
 if (isset($_POST['submit'])) {
   register($_POST);

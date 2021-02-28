@@ -1,5 +1,7 @@
+<?php require_once("core/init.php"); ?>
+
 <li class="nav-item">
-  <a href="index.php" class="nav-link">
+  <a href="index.php" class="nav-link <?php if ($namaFile == 'index'): echo 'active'; endif; ?>">
     <i class="nav-icon fas fa-tachometer-alt"></i>
     <p>
       Dashboard

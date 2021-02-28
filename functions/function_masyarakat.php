@@ -40,7 +40,7 @@ function login($request){
     $username = mysqli_real_escape_string($link, $request['username']);
     $password = mysqli_real_escape_string($link, $request['password']);
 
-    $query = "SELECT password FROM masyarakat WHERE username = '$username'";
+    $query = "SELECT * FROM masyarakat WHERE username = '$username'";
 
     $result = mysqli_query($link, $query);
     $hash = mysqli_fetch_assoc($result);
@@ -51,7 +51,7 @@ function login($request){
     if ($password == $hash['password']) {
       $_SESSION['signed'] = [
         'role' => 'user',
-        'username' => $username
+        'user' => $hash
       ];
       $_SESSION['success'] = 'Login berhasil';
       return true;

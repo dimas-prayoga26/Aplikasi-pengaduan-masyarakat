@@ -1,11 +1,6 @@
 <?php
 require_once("functions/function_masyarakat.php");
-
-if(!isset($_SESSION['signed'])){
-    header('Location: login.php');
-}
-
-$user = user($_SESSION['signed']['username']);
+require_once('core/auth.php');
 
 include("views/admin_header.php");
 ?>
@@ -30,7 +25,9 @@ include("views/admin_header.php");
 
     <!-- Main content -->
     <section class="content">
-
+      <?php if ($role == 'user'): ?>
+        Selamat Datang, <?php echo $user['nama'] ?>
+      <?php endif; ?>
     </section>
     <!-- /.content -->
   </div>
