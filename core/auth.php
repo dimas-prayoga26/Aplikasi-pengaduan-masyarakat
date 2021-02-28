@@ -2,11 +2,11 @@
 
 require_once("core/init.php");
 
-$user = null;
+$auth = null;
 $role = null;
 
 if (isset($_SESSION['signed'])) {
-  $user = $_SESSION['signed']['user'];
+  $auth = $_SESSION['signed']['user'];
   $role = $_SESSION['signed']['role'];
 }
 

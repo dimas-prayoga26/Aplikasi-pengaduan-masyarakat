@@ -26,7 +26,7 @@ include("views/admin_header.php");
     <!-- Main content -->
     <section class="content">
       <?php if ($role == 'user'): ?>
-        Selamat Datang, <?php echo $user['nama'] ?>
+        Selamat Datang, <?php echo $auth['nama'] ?>
       <?php endif; ?>
     </section>
     <!-- /.content -->
