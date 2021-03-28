@@ -10,6 +10,7 @@ $auth = null;
 $role = null;
 $user = null;
 
+$allRoles = [ROLE_USER,ROLE_ADMIN,ROLE_PETUGAS];
 $adminRoles = [ROLE_ADMIN,ROLE_PETUGAS];
 $adminRolesList = ['Admin' => ROLE_ADMIN, 'Petugas' => ROLE_PETUGAS];
 
