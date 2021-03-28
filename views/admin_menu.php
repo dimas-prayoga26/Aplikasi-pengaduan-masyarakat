@@ -41,7 +41,7 @@
 <?php endif; ?>
 <?php if (count($accessMenu[$role]['petugas']['allowMenu'])): ?>
   <li class="nav-item">
-    <a href="petugas_index.php" class="nav-link <?php if (in_array($namaFile, count($accessMenu[$role]['petugas']['allowMenu']))): echo 'active'; endif; ?>">
+    <a href="petugas_index.php" class="nav-link <?php if (in_array($namaFile, $accessMenu[$role]['petugas']['allowMenu'])): echo 'active'; endif; ?>">
       <i class="nav-icon fas fa-user"></i>
       <p>
         Petugas
