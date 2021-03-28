@@ -65,6 +65,32 @@ function delete_petugas($request){
           }
           return $hasil;
 }
+
+function admin_login($request){
+    global $link;
+    // mencegah sql injection
+    $username = mysqli_real_escape_string($link, $request['username']);
+    $password = mysqli_real_escape_string($link, $request['password']);
+
+    $query = "SELECT * FROM petugas WHERE username = '$username'";
+
+    $result = mysqli_query($link, $query);
+    $hash = mysqli_fetch_assoc($result);
+
+    // if( password_verify($pass, $hash['password']) ) return true;
+    // else return false;
+    if ($password == $hash['password']) {
+      $_SESSION['signed'] = [
+        'role' => $hash['level'],
+        'user' => $hash
+      ];
+      $_SESSION['success'] = 'Login berhasil';
+      return true;
+    } else {
+      $_SESSION['error'] = 'Login gagal';
+      return false;
+    }
+}
   // $id=$_GET['id'];
   //
   // 	global $link;

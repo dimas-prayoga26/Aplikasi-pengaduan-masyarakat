@@ -74,7 +74,7 @@ $sqli = mysqli_query($link , "SELECT * FROM petugas");
                       <td><?=$data_petugas['telp']?></td>
                       <td><?=$data_petugas['username']?></td>
                       <td><?=$data_petugas['password']?></td>
-                      <td><span class="badge bg-success"><?=$data_petugas['level']?></span></td>
+                      <td><span class="badge <?php if ($data_petugas['level'] == ROLE_ADMIN): echo "bg-success"; elseif ($data_petugas['level'] == ROLE_PETUGAS): echo "bg-primary"; endif; ?>"><?=$data_petugas['level']?></span></td>
                       <td>
                         <a class="btn btn-primary btn-sm" href="petugas_update.php?id=<?php echo $data_petugas['id_petugas']; ?>">
                             <i class="fas fa-pencil-alt "></i>
