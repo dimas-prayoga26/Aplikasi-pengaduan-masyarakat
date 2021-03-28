@@ -31,7 +31,7 @@
 <?php endif; ?>
 <?php if (count($accessMenu[$role]['pengaduan']['allowMenu'])): ?>
   <li class="nav-item">
-    <a href="" class="nav-link <?php if (in_array($namaFile, $accessMenu[$role]['pengaduan']['allowMenu'])): echo 'active'; endif; ?>">
+    <a href="pengaduan_index.php" class="nav-link <?php if (in_array($namaFile, $accessMenu[$role]['pengaduan']['allowMenu'])): echo 'active'; endif; ?>">
       <i class="nav-icon fas fa-book"></i>
       <p>
         Pengaduan
@@ -49,14 +49,6 @@
     </a>
   </li>
 <?php endif; ?>
-<li class="nav-item">
-  <a href="tanggapan_index.php" class="nav-link <?php if (in_array($namaFile, ['tanggapan_index'])): echo 'active'; endif; ?>">
-    <i class="nav-icon fas fa-edit"></i>
-    <p>
-      Verifikasi Tanggapan
-    </p>
-  </a>
-</li>
 <li class="nav-item">
   <a href="logout.php" class="nav-link">
     <i class="nav-icon fas fa-sign-out-alt"></i>

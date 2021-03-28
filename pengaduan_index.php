@@ -4,7 +4,7 @@ require_once('core/auth.php');
 require_once("core/init.php");
 include("views/admin_header.php");
 
-$sqli = mysqli_query($link , "SELECT * FROM pengaduan WHERE status='0'");
+$sqli = mysqli_query($link , "SELECT * FROM pengaduan WHERE id_pengaduan");
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -14,7 +14,6 @@ $sqli = mysqli_query($link , "SELECT * FROM pengaduan WHERE status='0'");
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>VERFIKASI PENGADUAN</h1>
-            <?php include('views/alert.php'); ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -29,11 +28,13 @@ $sqli = mysqli_query($link , "SELECT * FROM pengaduan WHERE status='0'");
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <?php include('views/alert.php'); ?>
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
+                  <a href="pengaduan_create.php" class="btn btn-block btn-xs btn-outline-primary">Tambah</a>
                 </h3>
 
                 <div class="card-tools">
@@ -72,9 +73,12 @@ $sqli = mysqli_query($link , "SELECT * FROM pengaduan WHERE status='0'");
                       <td><?=$data_petugas['nik']?></td>
                       <td><?=$data_petugas['isi_laporan']?></td>
                       <td><?=$data_petugas['foto']?></td>
-                      <td><span class="badge bg-danger"><?=$data_petugas['status']?></span></td>
+                      <td><span class="badge <?php if($data_petugas['status'] == P_STATUS_NEW): echo "bg-danger";
+                       elseif($data_petugas['status'] == P_STATUS_PROSES): echo "bg-primary";
+                       elseif($data_petugas['status'] == P_STATUS_SELESAI): echo "bg-success";
+                       endif; ?>"><?=$data_petugas['status']?></span></td>
                       <td>
-                        <a class="btn btn-info btn-sm" href="lihat_pengaduan.php?id=<?php echo $data_petugas['id_pengaduan']; ?>">
+                        <a class="btn btn-info btn-sm" href="pengaduan_lihat.php?id=<?php echo $data_petugas['id_pengaduan']; ?>">
                             <i class="fa fa-check "></i>
                             Detail & Verifikasi
                         </a>
