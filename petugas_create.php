@@ -75,8 +75,9 @@ include("views/admin_header.php");
                     <label for="">Level</label>
                     <select class="form-control" name="level" required>
                       <option value="">- Pilih -</option>
-                      <option value="admin">Admin</option>
-                      <option value="petugas">Petugas</option>
+                      <?php foreach ($adminRolesList as $name => $role): ?>
+                        <option value="<?php echo $role; ?>"><?php echo $name ?></option>
+                      <?php endforeach; ?>
                     </select>
                   </div>
                 </div>

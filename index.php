@@ -27,9 +27,7 @@ include("views/admin_header.php");
     <section class="content">
       <div class="container-fluid">
         <?php include('views/alert.php'); ?>
-        <?php if ($role == 'user'): ?>
-          Selamat Datang, <?php echo $auth['nama'] ?>
-        <?php endif; ?>
+        Selamat Datang, <?php echo $auth['nama'] ?>
       </div>
     </section>
     <!-- /.content -->
