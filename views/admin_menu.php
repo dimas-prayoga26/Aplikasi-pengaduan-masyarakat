@@ -10,11 +10,20 @@
     </p>
   </a>
 </li>
+<!-- Akun Admin / Akun Petugas -->
 <li class="nav-item">
-  <a href="petugas_index.php" class="nav-link <?php if (in_array($namaFile, ['petugas_index','petugas_create','petugas_edit'])): echo 'active'; endif; ?>">
+  <a href="petugas_index.php" class="nav-link <?php if (in_array($namaFile, ['petugas_index','petugas_create','petugas_update' ,'petugas_delete'])): echo 'active'; endif; ?>">
     <i class="nav-icon fas fa-user"></i>
     <p>
       Petugas
+    </p>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="verifikasi_index.php" class="nav-link <?php if (in_array($namaFile, [])): echo 'active'; endif; ?>">
+    <i class="nav-icon fas fa-edit"></i>
+    <p>
+      Verifikasi Tanggapan
     </p>
   </a>
 </li>

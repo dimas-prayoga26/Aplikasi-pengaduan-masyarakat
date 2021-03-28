@@ -1,10 +1,10 @@
 <?php
-require_once("functions/function_petugas.php");
+require_once("functions/function_verifikasi.php");
 require_once('core/auth.php');
 require_once("core/init.php");
 include("views/admin_header.php");
 
-$sqli = mysqli_query($link , "SELECT * FROM petugas");
+$sqli = mysqli_query($link , "SELECT * FROM pengaduan WHERE status='0'");
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -13,7 +13,7 @@ $sqli = mysqli_query($link , "SELECT * FROM petugas");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Petugas</h1>
+            <h1>VERFIKASI PENGADUAN</h1>
             <?php include('views/alert.php'); ?>
           </div>
           <div class="col-sm-6">
@@ -34,7 +34,6 @@ $sqli = mysqli_query($link , "SELECT * FROM petugas");
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-                  <a href="petugas_create.php" class="btn btn-block btn-xs btn-outline-primary">Tambah</a>
                 </h3>
 
                 <div class="card-tools">
@@ -54,13 +53,12 @@ $sqli = mysqli_query($link , "SELECT * FROM petugas");
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>NO</th>
-                      <th>Nama</th>
-                      <th>Telepon</th>
-                      <th>Username</th>
-                      <th>Password</th>
-                      <th>Level</th>
-                      <th>Function</th>
+                      <th>NO Pengaduan</th>
+                      <th>Tanggal Pengaduan</th>
+                      <th>Nik</th>
+                      <th>Isi Laporan</th>
+                      <th>Foto</th>
+                      <th>Status</th>
                     </tr>
                   </thead>
                   <?php
@@ -69,20 +67,16 @@ $sqli = mysqli_query($link , "SELECT * FROM petugas");
                    ?>
                   <tbody>
                     <tr>
-                      <td><?=$data_petugas['id_petugas']?></td>
-                      <td><?=$data_petugas['nama_petugas']?></td>
-                      <td><?=$data_petugas['telp']?></td>
-                      <td><?=$data_petugas['username']?></td>
-                      <td><?=$data_petugas['password']?></td>
-                      <td><span class="badge bg-success"><?=$data_petugas['level']?></span></td>
+                      <td><?=$data_petugas['id_pengaduan']?></td>
+                      <td><?=$data_petugas['tgl_pengaduan']?></td>
+                      <td><?=$data_petugas['nik']?></td>
+                      <td><?=$data_petugas['isi_laporan']?></td>
+                      <td><?=$data_petugas['foto']?></td>
+                      <td><span class="badge bg-danger"><?=$data_petugas['status']?></span></td>
                       <td>
-                        <a class="btn btn-primary btn-sm" href="petugas_update.php?id=<?php echo $data_petugas['id_petugas']; ?>">
-                            <i class="fas fa-pencil-alt "></i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="petugas_delete.php?id=<?php echo $data_petugas['id_petugas']; ?>">
-                            <i class="fas fa-trash "></i>
-                            Delete
+                        <a class="btn btn-info btn-sm" href="lihat_pengaduan.php?id=<?php echo $data_petugas['id_pengaduan']; ?>">
+                            <i class="fa fa-check "></i>
+                            Detail & Verifikasi
                         </a>
                         <?php } ?>
                       </td>

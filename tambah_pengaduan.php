@@ -2,6 +2,7 @@
 // php script
 require_once("functions/function_masyarakat.php");
 require_once("functions/function_pengaduan.php");
+// require_once("functions/list_tabel_pengaduan.php");
 
 if(!isset($_SESSION['signed'])){
     header('Location: login.php');
@@ -12,10 +13,13 @@ $user = user($_SESSION['signed']['username']);
 
 if (isset($_POST['submit'])) {
   tambah_pengaduan($_POST);
+
+  header('location:tambah_pengaduan.php');
+  exit;
 }
 
 // html
-include("views/header.php");
+include("views/auth_header.php");
 ?>
     <div class="row">
         <div class="medium-6 medium-centered large-4 large-centered columns">
@@ -43,5 +47,5 @@ include("views/header.php");
     </div>
 
 <?php
-include("views/footer.php");
+include("views/auth_header.php");
 ?>
