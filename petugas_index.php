@@ -14,7 +14,6 @@ $sqli = mysqli_query($link , "SELECT * FROM petugas");
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Petugas</h1>
-            <?php include('views/alert.php'); ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -29,6 +28,7 @@ $sqli = mysqli_query($link , "SELECT * FROM petugas");
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <?php include('views/alert.php'); ?>
         <div class="row">
           <div class="col-12">
             <div class="card">
