@@ -20,7 +20,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a href="verifikasi_index.php" class="nav-link <?php if (in_array($namaFile, [])): echo 'active'; endif; ?>">
+  <a href="tanggapan_index.php" class="nav-link <?php if (in_array($namaFile, ['tanggapan_index'])): echo 'active'; endif; ?>">
     <i class="nav-icon fas fa-edit"></i>
     <p>
       Verifikasi Tanggapan
