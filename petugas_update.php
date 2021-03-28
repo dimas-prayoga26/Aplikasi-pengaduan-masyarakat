@@ -68,10 +68,11 @@ include("views/admin_header.php");
                   </div>
                   <div class="form-group">
                     <label for="">Level</label>
+                    <?php echo $data['level']; ?>
                     <select class="form-control" name="level" required>
-                      <option value=""><?php echo $data['level']; ?></option>
-                      <option value="admin">admin</option>
-                      <option value="petugas">petugas</option>
+                      <option value="">Pilih</option>
+                      <option value="admin" <?php if ($data['level'] == 'admin'): echo 'selected'; endif; ?>>admin</option>
+                      <option value="petugas" <?php if ($data['level'] == 'petugas'): echo 'selected'; endif; ?>>petugas</option>
                     </select>
                   </div>
                 </div>
