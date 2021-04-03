@@ -17,17 +17,17 @@
       <span class="badge badge-info right">6</span> -->
     </p>
   </a>
-</li>
+</li><br>
 <!-- Akun Admin / Akun Petugas -->
 <?php if (count($accessMenu[$role]['masyarakat']['allowMenu'])): ?>
   <li class="nav-item">
-    <a href="" class="nav-link <?php if (in_array($namaFile, $accessMenu[$role]['masyarakat']['allowMenu'])): echo 'active'; endif; ?>">
+    <a href="masyarakat_index.php" class="nav-link <?php if (in_array($namaFile, $accessMenu[$role]['masyarakat']['allowMenu'])): echo 'active'; endif; ?>">
       <i class="nav-icon fas fa-user"></i>
       <p>
         Masyarkat
       </p>
     </a>
-  </li>
+  </li><br>
 <?php endif; ?>
 <?php if (count($accessMenu[$role]['pengaduan']['allowMenu'])): ?>
   <li class="nav-item">
@@ -37,7 +37,7 @@
         Pengaduan
       </p>
     </a>
-  </li>
+  </li><br>
 <?php endif; ?>
 <?php if (count($accessMenu[$role]['petugas']['allowMenu'])): ?>
   <li class="nav-item">
@@ -47,7 +47,7 @@
         Petugas
       </p>
     </a>
-  </li>
+  </li><br>
 <?php endif; ?>
 <li class="nav-item">
   <a href="logout.php" class="nav-link">
@@ -56,4 +56,4 @@
       Logout
     </p>
   </a>
-</li>
+</li><br>

@@ -1,13 +1,12 @@
 <?php
-require_once("functions/function_pengaduan.php");
+require_once("functions/function_masyarakat.php");
 require_once('core/auth.php');
 
 if (isset($_POST['submit'])) {
-  tambah_pengaduan($_POST);
+  tambah_masyarakat($_POST);
 
-  header('location:pengaduan_index.php');
+  header('location:masyarakat_index.php');
 }
-var_dump($user);
 // else {
 //   header('location:petugas_create.php');
 // }
@@ -29,12 +28,12 @@ include("views/admin_header.php");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tanggapan</h1>
+            <h1>Masyarkat</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="pengaduan_index.php">Petugas</a></li>
+              <li class="breadcrumb-item"><a href="masyarakat_index.php">Masyarkat</a></li>
               <li class="breadcrumb-item active">Tambah</li>
             </ol>
           </div>
@@ -50,29 +49,33 @@ include("views/admin_header.php");
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-                  Tambah Petugas
+                  Tambah Masyarkat
                 </h3>
               </div>
               <!-- /.card-header -->
-              <form class="" action="pengaduan_create.php" method="post" enctype="multipart/form-data">
+              <form class="" action="masyarakat_create.php" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="">Tanggal Pengaduan</label>
-                    <input type="text" class="form-control" name="tgl_pengaduan" value="<?php echo date('Y-m-d'); ?>" readonly>
+                    <label for="">NIK</label>
+                    <input type="text" class="form-control" name="nik" value="massa" required>
                   </div>
                   <div class="form-group">
-                    <label for="">Nik</label>
-                    <input type="text" class="form-control" name="nik" value="<?php echo isset($user['nik']) ? $user['nik'] : '' ?>" >
+                    <label for="">Nama</label>
+                    <input type="text" class="form-control" name="nama" value="" required>
                   </div>
                   <div class="form-group">
-                    <label for="">Isi Laporan</label>
-                    <textarea class="form-control" name="isi_laporan" value="" required></textarea>
+                    <label for="">Username</label>
+                    <input type="text" class="form-control" name="username" value="" required>
                   </div>
                   <div class="form-group">
-                    <label for="">Foto</label>
-                    <input type="file" class="form-control" name="foto" value="" required>
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="pass" value="" required>
                   </div>
-                  <?php if (!in_array($role, [ROLE_USER])): ?>
+                  <div class="form-group">
+                    <label for="">Telpon</label>
+                    <input type="text" class="form-control" name="telp" value="" required>
+                  </div>
+                  <!-- <?php if (!in_array($role, [ROLE_USER])): ?>
                     <div class="form-group">
                       <label for="">status</label>
                       <select class="form-control" name="status" required>
@@ -81,7 +84,7 @@ include("views/admin_header.php");
                           <option value="<?php echo $status; ?>"><?php echo $name ?></option>
                         <?php endforeach; ?>
                       </select>
-                    </div>
+                    </div> -->
                   <?php endif; ?>
                 </div>
                 <!-- /.card-body -->

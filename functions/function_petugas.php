@@ -65,7 +65,6 @@ function delete_petugas($request){
           }
           return $hasil;
 }
-
 function admin_login($request){
     global $link;
     // mencegah sql injection
@@ -84,13 +83,14 @@ function admin_login($request){
         'role' => $hash['level'],
         'user' => $hash
       ];
-      $_SESSION['success'] = 'Login berhasil';
+      $_SESSION['success'] = 'SELEMAT DATANG '. strtoupper($hash['level']);
       return true;
     } else {
       $_SESSION['error'] = 'Login gagal';
       return false;
     }
 }
+
   // $id=$_GET['id'];
   //
   // 	global $link;

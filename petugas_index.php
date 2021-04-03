@@ -13,7 +13,7 @@ $sqli = mysqli_query($link , "SELECT * FROM petugas");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Petugas</h1>
+            <h1>PETUGAS</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -64,12 +64,13 @@ $sqli = mysqli_query($link , "SELECT * FROM petugas");
                     </tr>
                   </thead>
                   <?php
+                    $num = 1;
                     while($data_petugas = mysqli_fetch_assoc($sqli)) {
 
                    ?>
                   <tbody>
                     <tr>
-                      <td><?=$data_petugas['id_petugas']?></td>
+                      <td><?=$num++?></td>
                       <td><?=$data_petugas['nama_petugas']?></td>
                       <td><?=$data_petugas['telp']?></td>
                       <td><?=$data_petugas['username']?></td>

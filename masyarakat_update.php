@@ -1,23 +1,17 @@
 <?php
-require_once("functions/function_petugas.php");
+require_once("functions/function_masyarakat.php");
 require_once('core/auth.php');
+require_once('core/init.php');
 
-if (isset($_POST['submit'])) {
-  tambah_petugas($_POST);
+if(isset($_POST['update'])) {
+  update_masyarakat($_POST);
 
-  header('location:petugas_index.php');
+  header('location:masyarakat_index.php');
 }
-// else {
-//   header('location:petugas_create.php');
-// }
-// exit;
 
-// if(tambah_petugas($_POST)) {
-// header('location:petugas_index.php');
-// } else {
-// header('location:petugas_create.php');
-// }
-// exit;
+$nik = $_GET['id'];
+$ambilData = mysqli_query($link , "SELECT * FROM masyarakat WHERE nik='$nik'");
+$data = mysqli_fetch_assoc($ambilData);
 
 include("views/admin_header.php");
 ?>
@@ -28,12 +22,12 @@ include("views/admin_header.php");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Petugas</h1>
+            <h1>Masyarkat</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="petugas_index.php">Petugas</a></li>
+              <li class="breadcrumb-item"><a href="masyarakat_index.php">Masyarkat</a></li>
               <li class="breadcrumb-item active">Tambah</li>
             </ol>
           </div>
@@ -49,41 +43,47 @@ include("views/admin_header.php");
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-                  Tambah Petugas
+                  Update Masyarkat
                 </h3>
               </div>
-                <!-- /.card-body -->
-              <form class="" action="petugas_create.php" method="post">
+              <!-- /.card-header -->
+              <form class="" action="masyarakat_update.php" method="post">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="">Nama</label>
-                    <input type="text" class="form-control" name="nama_petugas" value="" required>
+                    <label for="">NIK</label>
+                    <!-- <input type="hidden" name="nik" value="<?php echo $data['id_petugas']; ?>"> -->
+                    <input type="text" class="form-control" name="nik" value="<?php echo $data['nik']; ?>" required>
                   </div>
                   <div class="form-group">
-                    <label for="">Telepon</label>
-                    <input type="text" class="form-control" name="telp" value="">
+                    <label for="">Nama</label>
+                    <input type="text" class="form-control" name="nama" value="<?php echo $data['nama']; ?>" value="">
                   </div>
                   <div class="form-group">
                     <label for="">Username</label>
-                    <input type="text" class="form-control" name="username" value="" required>
+                    <input type="text" class="form-control" name="username" value="<?php echo $data['username']; ?>" required>
                   </div>
                   <div class="form-group">
                     <label for="">Password</label>
-                    <input type="text" class="form-control" name="password" value="" required>
+                    <input type="text" class="form-control" name="pass"  value="<?php echo $data['password']; ?>" required>
                   </div>
                   <div class="form-group">
+                    <label for="">Telpon</label>
+                    <input type="text" class="form-control" name="telp"  value="<?php echo $data['telp']; ?>" required>
+                  </div>
+                  <!-- <div class="form-group">
                     <label for="">Level</label>
+                    <?php echo $data['level'] ?>
                     <select class="form-control" name="level" required>
                       <option value="">- Pilih -</option>
                       <?php foreach ($adminRolesList as $name => $role): ?>
-                        <option value="<?php echo $role; ?>"><?php echo $name ?></option>
+                        <option value="<?php echo $role; ?>" <?php if ($data['level'] == $role): echo 'selected'; endif; ?>><?php echo $name ?></option>
                       <?php endforeach; ?>
                     </select>
-                  </div>
+                  </div> -->
                 </div>
-                <!-- /.card-header -->
+                <!-- /.card-body -->
                 <div class="card-footer">
-                  <input type="hidden" name="submit" value="submit">
+                  <input type="hidden" name="update" value="submit">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>

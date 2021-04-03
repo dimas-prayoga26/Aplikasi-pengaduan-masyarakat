@@ -1,5 +1,5 @@
 <?php
-require_once("functions/function_verifikasi.php");
+require_once("functions/function_pengaduan.php");
 require_once('core/auth.php');
 require_once('core/init.php');
 
@@ -7,10 +7,10 @@ if(isset($_POST['proses'])) {
   update_pengaduan($_POST);
     header('location:pengaduan_index.php');
 }
-if(isset($_POST['kembali'])){
-
-    header('location:pengaduan_index.php');
-}
+// if(isset($_POST['kembali'])){
+//
+//     header('location:pengaduan_index.php');
+// }
 
 $id = $_GET['id'];
 $ambilData = mysqli_query($link , "SELECT * FROM pengaduan WHERE id_pengaduan='$id'");
@@ -71,7 +71,7 @@ include("views/admin_header.php");
                             <p>Tanggapan , Yakind Akan DI Proses ?&hellip;</p>
                           </div>
                           <div class="modal-footer justify-content-between">
-                            <form class="" action="pengaduan_lihat.php" method="post">
+                            <form class="" action="pengaduan_update.php" method="post">
                             <input type="hidden" name="id_pengaduan" value="<?php echo $data['id_pengaduan']; ?>">
                             <input type="hidden" name="proses" value="submit">
                             <button type="button" class="btn btn-default" data-dismiss="modal">TIDAK</button>

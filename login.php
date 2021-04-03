@@ -55,6 +55,9 @@ include("views/auth_header.php");
 
     <p class="mb-0">
       <a href="register.php" class="text-center">Belum punya akun?</a>
+    </p><br>
+    <p class="mb-0">
+      <a href="admin_login.php" class="text-center">Login Sebagai Admin ?</a>
     </p>
   </div>
   <!-- /.card-body -->
